@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxd17cjaavk1"]
+
+[ext_resource type="Texture2D" uid="uid://dymntotugjhw0" path="res://Assets/finalNight.PNG" id="1_07rix"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(-1.000001, -1.9999981)
+scale = Vector2(1.6744186, 3.8244047)
+texture = ExtResource("1_07rix")
+centered = false

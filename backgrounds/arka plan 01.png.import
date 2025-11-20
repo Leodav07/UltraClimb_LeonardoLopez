@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djpolvsdbxmn6"
-path="res://.godot/imported/arka plan 01.png-3d6b75a10c6639117039f4a7fa904ecb.ctex"
+path="res://.godot/imported/arka plan 01.png-aa38f6cc2feea35df3963561166ec74a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://backgrounds/arka plan 01.png"
-dest_files=["res://.godot/imported/arka plan 01.png-3d6b75a10c6639117039f4a7fa904ecb.ctex"]
+source_file="res://Backgrounds/arka plan 01.png"
+dest_files=["res://.godot/imported/arka plan 01.png-aa38f6cc2feea35df3963561166ec74a.ctex"]
 
 [params]
 

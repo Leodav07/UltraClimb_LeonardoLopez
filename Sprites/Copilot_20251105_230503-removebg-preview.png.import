@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxe4co6i5iliu"
-path="res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"
+uid="uid://jj4nxovcr84y"
+path="res://.godot/imported/Copilot_20251105_230503-removebg-preview.png-429dc72c703b2dd6b36e050af930213b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Sprite-0002.2.png"
-dest_files=["res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"]
+source_file="res://Sprites/Copilot_20251105_230503-removebg-preview.png"
+dest_files=["res://.godot/imported/Copilot_20251105_230503-removebg-preview.png-429dc72c703b2dd6b36e050af930213b.ctex"]
 
 [params]
 

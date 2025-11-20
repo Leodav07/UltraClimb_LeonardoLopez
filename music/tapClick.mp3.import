@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cavod4344xr0a"
-path="res://.godot/imported/tapClick.mp3-713a1f934653adaf2b638ef5aff86863.mp3str"
+path="res://.godot/imported/tapClick.mp3-9a340418c6916edab49da5b0581722e3.mp3str"
 
 [deps]
 
-source_file="res://music/tapClick.mp3"
-dest_files=["res://.godot/imported/tapClick.mp3-713a1f934653adaf2b638ef5aff86863.mp3str"]
+source_file="res://Music/tapClick.mp3"
+dest_files=["res://.godot/imported/tapClick.mp3-9a340418c6916edab49da5b0581722e3.mp3str"]
 
 [params]
 

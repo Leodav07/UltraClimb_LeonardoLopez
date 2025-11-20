@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxe4co6i5iliu"
-path="res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"
+uid="uid://xibbyhx2vpxp"
+path="res://.godot/imported/SawBladeSuriken.png-d0e8bbbc492f2dc56e10b76daf2970aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Sprite-0002.2.png"
-dest_files=["res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"]
+source_file="res://Sprites/HazardSprites/SawBladeSuriken.png"
+dest_files=["res://.godot/imported/SawBladeSuriken.png-d0e8bbbc492f2dc56e10b76daf2970aa.ctex"]
 
 [params]
 

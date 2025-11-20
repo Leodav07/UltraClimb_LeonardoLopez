@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cp5socn4eolnu"
-path="res://.godot/imported/cartoon-jump-6462.mp3-da81445634f447252450ffc508d7a545.mp3str"
+path="res://.godot/imported/cartoon-jump-6462.mp3-9666a0a9403e57b63d0a36c6ef847dc4.mp3str"
 
 [deps]
 
-source_file="res://music/cartoon-jump-6462.mp3"
-dest_files=["res://.godot/imported/cartoon-jump-6462.mp3-da81445634f447252450ffc508d7a545.mp3str"]
+source_file="res://Music/cartoon-jump-6462.mp3"
+dest_files=["res://.godot/imported/cartoon-jump-6462.mp3-9666a0a9403e57b63d0a36c6ef847dc4.mp3str"]
 
 [params]
 

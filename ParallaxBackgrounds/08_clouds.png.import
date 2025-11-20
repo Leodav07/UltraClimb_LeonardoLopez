@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxe4co6i5iliu"
-path="res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"
+uid="uid://lhkl1mkmlox7"
+path="res://.godot/imported/08_clouds.png-90cc66024e5f3ff279a96578d0749aec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Sprite-0002.2.png"
-dest_files=["res://.godot/imported/Sprite-0002.2.png-4bf794801e3022d08b227213485016c5.ctex"]
+source_file="res://ParallaxBackgrounds/08_clouds.png"
+dest_files=["res://.godot/imported/08_clouds.png-90cc66024e5f3ff279a96578d0749aec.ctex"]
 
 [params]
 
