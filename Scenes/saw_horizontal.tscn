@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtnw6wjy0d4fm"]
+
+[ext_resource type="Script" uid="uid://dxod0i8gamg1j" path="res://Scripts/saw_horizontal.gd" id="1_bn04f"]
+[ext_resource type="Texture2D" uid="uid://xibbyhx2vpxp" path="res://Sprites/HazardSprites/SawBladeSuriken.png" id="2_gvly1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qbox"]
+atlas = ExtResource("2_gvly1")
+region = Rect2(3, 32, 25, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk2w8"]
+atlas = ExtResource("2_gvly1")
+region = Rect2(28, 32, 25, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0iwo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qbox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk2w8")
+}],
+"loop": true,
+"name": &"Rotate",
+"speed": 13.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bn04f"]
+radius = 5.0990195
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_bn04f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y0iwo")
+animation = &"Rotate"
+frame_progress = 0.60237795
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bn04f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

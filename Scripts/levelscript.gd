@@ -1,8 +1,8 @@
 extends Node2D
 @onready var player = $TilemapLayers/CharacterBody2D
-@onready var scoreLabel = $CanvasLayer/ScoreLabel
+@onready var scoreLabel = $CanvasLayer/Control/ScoreLabel
 @onready var AudioPlayer = $AudioStreamPlayer
-const PIXEL_PER_POINT = 40
+const PIXEL_PER_POINT = 50
 var start_y = 0
 func _ready() -> void:
 	AudioPlayer.play()

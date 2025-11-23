@@ -27,124 +27,130 @@
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_h63v2")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_0sm67")
+volume_db = 10.146
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 script = ExtResource("2_l6llh")
 
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Sky" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(750, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Sky"]
 position = Vector2(-35.00006, 4)
 scale = Vector2(0.37792966, 0.8344114)
 texture = ExtResource("3_ocger")
 centered = false
 
-[node name="Clouds1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Clouds1" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_mirroring = Vector2(770, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds1"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Clouds1"]
 position = Vector2(350.49997, 646.99994)
 scale = Vector2(0.37939453, 0.83182395)
 texture = ExtResource("4_i37ye")
 
-[node name="Clouds2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Clouds2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(1.4, 1.4)
 motion_mirroring = Vector2(770, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds2"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Clouds2"]
 position = Vector2(349.5, 645)
 scale = Vector2(0.37841797, 0.839586)
 texture = ExtResource("5_jbv25")
 
-[node name="Clouds3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Clouds3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(1.5, 1.5)
 motion_mirroring = Vector2(770, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds3"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Clouds3"]
 position = Vector2(349.50003, 641.5)
 scale = Vector2(0.37646487, 0.8350582)
 texture = ExtResource("6_nakb8")
 
-[node name="HugeClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="HugeClouds" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(750, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/HugeClouds"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/HugeClouds"]
 position = Vector2(351.25, 648)
 scale = Vector2(0.37670898, 0.8324709)
 texture = ExtResource("7_pde1v")
 
-[node name="Hills1" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Hills1" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(1.5, 1.5)
 motion_mirroring = Vector2(750, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Hills1"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Hills1"]
 position = Vector2(350.75003, 641.75)
 scale = Vector2(0.37622073, 0.82956016)
 texture = ExtResource("8_747ic")
 
-[node name="Hills2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Hills2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(2, 2)
 motion_mirroring = Vector2(755, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Hills2"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Hills2"]
 position = Vector2(349.25003, 646)
 scale = Vector2(0.37573242, 0.8382924)
 texture = ExtResource("9_x0760")
 
-[node name="Bushes" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Bushes" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(2.5, 2.5)
 motion_mirroring = Vector2(751.49, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Bushes"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/Bushes"]
 position = Vector2(352.5, 635.99994)
 scale = Vector2(0.37646484, 0.8373221)
 texture = ExtResource("10_lvy56")
 
-[node name="distant_trees" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="distant_trees" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(3, 3)
 motion_mirroring = Vector2(753.235, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/distant_trees"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/distant_trees"]
 position = Vector2(350.5, 681)
 scale = Vector2(0.37646484, 0.7037516)
 texture = ExtResource("11_48g0d")
 
-[node name="trees_and_bushes" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="trees_and_bushes" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(3.5, 3.5)
 motion_mirroring = Vector2(753.665, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/trees_and_bushes"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/trees_and_bushes"]
 position = Vector2(350.875, 741.00006)
 scale = Vector2(0.37609866, 0.6164295)
 texture = ExtResource("12_ygxe1")
 
-[node name="ground" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ground" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(3.5, 3.5)
 motion_mirroring = Vector2(749.895, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ground"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ground"]
 position = Vector2(354, 646.00006)
 scale = Vector2(0.3769531, 0.8389392)
 texture = ExtResource("13_0idt7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 offset_right = 721.0
 offset_bottom = 1283.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Title" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("14_ki2a1")
 flat = true
 icon_alignment = 1
 
-[node name="Leap" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Leap" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
 
@@ -158,43 +164,43 @@ text = "
 
 "
 
-[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="StartGame" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("15_flyo0")
 flat = true
 icon_alignment = 1
 script = ExtResource("16_4dr7d")
 
-[node name="ButtonClickStart" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/StartGame"]
+[node name="ButtonClickStart" type="AudioStreamPlayer" parent="CanvasLayer/MarginContainer/VBoxContainer/StartGame"]
 stream = ExtResource("17_8cy2d")
 
-[node name="Leap3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Leap3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("18_lx18h")
 flat = true
 icon_alignment = 1
 script = ExtResource("19_mucp4")
 
-[node name="ButtonClickExit" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/ExitButton"]
+[node name="ButtonClickExit" type="AudioStreamPlayer" parent="CanvasLayer/MarginContainer/VBoxContainer/ExitButton"]
 stream = ExtResource("20_v3l5l")
 
-[node name="Leap4" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Leap4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 icon = ExtResource("21_qpa3c")
 flat = true
 icon_alignment = 1
 script = ExtResource("22_ui7cl")
 
-[node name="ButtonClickSettings" type="AudioStreamPlayer" parent="MarginContainer/VBoxContainer/SettingsButton"]
+[node name="ButtonClickSettings" type="AudioStreamPlayer" parent="CanvasLayer/MarginContainer/VBoxContainer/SettingsButton"]
 stream = ExtResource("20_v3l5l")
 
-[node name="Leap2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Leap2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "
 
@@ -210,10 +216,6 @@ text = "
 
 "
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_0sm67")
-volume_db = 10.146
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGame" to="MarginContainer/VBoxContainer/StartGame" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="MarginContainer/VBoxContainer/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/StartGame" to="CanvasLayer/MarginContainer/VBoxContainer/StartGame" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/ExitButton" to="CanvasLayer/MarginContainer/VBoxContainer/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/SettingsButton" to="CanvasLayer/MarginContainer/VBoxContainer/SettingsButton" method="_on_pressed"]

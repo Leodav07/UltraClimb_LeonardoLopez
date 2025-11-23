@@ -236,29 +236,38 @@ size = Vector2(17, 26)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(1, -2)
 scale = Vector2(0.72775495, 0.7200006)
+safe_margin = 0.1
 script = ExtResource("1_onrkg")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"Jump_dust"
-frame_progress = 0.45708138
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1.3740889, 248.61089)
+position = Vector2(-1.374, 234.946)
 scale = Vector2(0.72518146, -2.722219)
 offset = Vector2(0, -170.935)
-zoom = Vector2(2.745, 2.745)
+zoom = Vector2(5.34, 5.366)
 limit_enabled = false
 limit_left = 0
 limit_top = 0
 limit_right = 720
 limit_bottom = 1280
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.1
+drag_vertical_offset = 0.2
+drag_left_margin = 0.1
+drag_right_margin = 0.1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_sweqy")
 pitch_scale = 1.43
+bus = &"SFX"

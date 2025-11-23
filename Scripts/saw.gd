@@ -15,4 +15,9 @@ func _process(delta):
 	var offset_y = sin(time_elapsed * MOVEMENT_SPEED / MOVEMENT_DISTANCE) * MOVEMENT_DISTANCE
 	position.y = start_y + offset_y
 	
-	
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+		if body.is_in_group("player"):
+			get_tree().reload_current_scene()
