@@ -7,6 +7,7 @@ const WALL_SLIDE_SPEED = 20.0
 const WALL_JUMP_OFF = 150.0 
 const JUMP_CUT_MAGNITUDE = 0.4
 var jump_count = 0
+var countCoins = 0
 const BOOST_EFFECT = preload("res://Scenes/boostFX.tscn")
 @onready var animated_coin = $"../../CanvasLayer/Coin"
 @onready var JUMP_SOUND = $AudioStreamPlayer
