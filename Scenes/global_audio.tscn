@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://ctlclq8dqb5cj"]
+[gd_scene load_steps=2 format=3 uid="uid://ctlclq8dqb5cj"]
+
+[ext_resource type="Script" uid="uid://ci5bqdtuxn7m3" path="res://Scripts/global_audio.gd" id="1_ux4e3"]
 
 [node name="GlobalAudio" type="Node"]
+script = ExtResource("1_ux4e3")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

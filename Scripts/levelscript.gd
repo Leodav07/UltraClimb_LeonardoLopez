@@ -1,11 +1,11 @@
 extends Node2D
 @onready var player = $TilemapLayers/CharacterBody2D
 @onready var scoreLabel = $CanvasLayer/Control/ScoreLabel
-@onready var AudioPlayer = $AudioStreamPlayer
+const MUSIC_BACKGROUND_PLAY = preload("res://Music/backgroundmusicforgame.mp3")
 const PIXEL_PER_POINT = 50
 var start_y = 0
 func _ready() -> void:
-	AudioPlayer.play()
+	GlobalAudio.play_music(MUSIC_BACKGROUND_PLAY)
 	if player:
 		start_y = player.global_position.y
 	

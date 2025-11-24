@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dwlhfcwxifktp"]
+[gd_scene load_steps=33 format=4 uid="uid://dwlhfcwxifktp"]
 
 [ext_resource type="Texture2D" uid="uid://g6cmys1xhtpu" path="res://Backgrounds/Sprite-0001.png" id="1_m2gv8"]
 [ext_resource type="Script" uid="uid://dtsxbid3cieyg" path="res://Scripts/levelscript.gd" id="1_t31ra"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dfbknpjmpht8a" path="res://Assets/Tree 1.png" id="4_yyrpj"]
 [ext_resource type="Texture2D" uid="uid://djcy2v6gvckt8" path="res://Assets/Assets.png" id="5_6epq6"]
 [ext_resource type="Texture2D" uid="uid://co6ieig3lithx" path="res://Assets/Tree 2.png" id="5_o46bk"]
-[ext_resource type="AudioStream" uid="uid://cqqn52bgejuu5" path="res://Music/backgroundmusicforgame.mp3" id="6_6epq6"]
 [ext_resource type="Texture2D" uid="uid://cmstlp2wkyvrw" path="res://Assets/Tree 3.png" id="6_50uyw"]
 [ext_resource type="PackedScene" uid="uid://wg77370dn25k" path="res://Scenes/spike.tscn" id="10_7ce3s"]
 [ext_resource type="PackedScene" uid="uid://dtnw6wjy0d4fm" path="res://Scenes/saw_horizontal.tscn" id="12_61jm7"]
@@ -1269,11 +1268,6 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Level" type="Node2D"]
 position = Vector2(174, -9)
 script = ExtResource("1_t31ra")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_6epq6")
-pitch_scale = 1.05
-bus = &"Music"
 
 [node name="TilemapLayers" type="Node2D" parent="."]
 position = Vector2(196, -71)

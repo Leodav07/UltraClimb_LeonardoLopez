@@ -1,5 +1,6 @@
 extends Node2D
-@onready var playMusic = $BackgroundMusic
+const MUSIC_BACKGROUND = preload("res://Music/adventures-loop-music-226836.mp3")
 
 func _ready() -> void:
-	playMusic.play()
+	GlobalAudio.play_music(MUSIC_BACKGROUND)
+	

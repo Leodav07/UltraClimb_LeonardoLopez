@@ -1,6 +1,6 @@
 extends Button
-@onready var AudioPlayer = $ButtonClickStart
+const START_SOUND = preload("res://Music/GameStart.mp3")
 func _on_pressed() -> void:
-	AudioPlayer.play()
+	GlobalAudio.play_SFX(START_SOUND)
 	Trans.change_scene("res://Scenes/nivel_1.tscn")
 	pass

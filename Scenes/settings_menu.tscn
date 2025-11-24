@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://gmd2jt31l7bp"]
+[gd_scene load_steps=17 format=3 uid="uid://gmd2jt31l7bp"]
 
 [ext_resource type="Script" uid="uid://4kgr25pm52f6" path="res://Scripts/parallaxMenu.gd" id="2_vv31b"]
 [ext_resource type="Texture2D" uid="uid://bgkhj7b6gsdhb" path="res://Backgrounds/Clouds 1/1.png" id="3_hmele"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bxn0w3aw8vmpb" path="res://Backgrounds/Clouds 1/4.png" id="6_cdah7"]
 [ext_resource type="Texture2D" uid="uid://dm1mu4yf2p5xd" path="res://Sprites/gear.png" id="7_jjs6x"]
 [ext_resource type="FontFile" uid="uid://d27mnr36vx7cf" path="res://Fonts/RoadPixel.ttf" id="8_aun78"]
+[ext_resource type="Script" uid="uid://dgbnope762qx3" path="res://Scripts/master_slider.gd" id="9_fsgis"]
 [ext_resource type="Script" uid="uid://e1qp3wyr4ot3" path="res://Scripts/back_button.gd" id="9_vv31b"]
-[ext_resource type="AudioStream" uid="uid://cavod4344xr0a" path="res://Music/tapClick.mp3" id="10_hmele"]
-[ext_resource type="AudioStream" uid="uid://cn3ovwplms33a" path="res://Music/adventures-loop-music-226836.mp3" id="14_o5rp5"]
+[ext_resource type="Script" uid="uid://bneu2x3s2agf3" path="res://Scripts/music_slider.gd" id="10_vv31b"]
+[ext_resource type="Script" uid="uid://djt4wghgiktpu" path="res://Scripts/sfx_slider.gd" id="11_hmele"]
 
 [sub_resource type="Theme" id="Theme_xcxc4"]
 default_font = ExtResource("8_aun78")
@@ -53,11 +54,6 @@ expand_margin_top = 14.0
 expand_margin_bottom = 14.0
 
 [node name="SettingsMenu" type="Node2D"]
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("14_o5rp5")
-volume_db = 10.146
-bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -138,6 +134,7 @@ offset_top = 198.0
 offset_right = -248.0
 offset_bottom = 287.0
 grow_horizontal = 0
+rotation = -6.2831855
 texture = ExtResource("7_jjs6x")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -164,10 +161,6 @@ text = "back"
 flat = true
 script = ExtResource("9_vv31b")
 metadata/_edit_use_anchors_ = true
-
-[node name="ButtonClickBack" type="AudioStreamPlayer" parent="CanvasLayer/HUD/backButton"]
-stream = ExtResource("10_hmele")
-bus = &"SFX"
 
 [node name="Settings" type="Button" parent="CanvasLayer/HUD"]
 texture_filter = 1
@@ -239,9 +232,9 @@ anchor_top = 3.0197918
 anchor_right = 0.4861111
 anchor_bottom = 3.0197918
 offset_left = -273.0
-offset_top = -4972.0005
+offset_top = -4941.0303
 offset_right = -169.0
-offset_bottom = -4888.0005
+offset_bottom = -4857.0303
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vv31b")
@@ -259,9 +252,9 @@ anchor_top = 3.0932295
 anchor_right = 0.4148148
 anchor_bottom = 3.0932295
 offset_left = -282.0
-offset_top = -4972.0005
+offset_top = -4894.4204
 offset_right = -177.99997
-offset_bottom = -4888.0005
+offset_bottom = -4810.4253
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vv31b")
@@ -282,35 +275,46 @@ theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_vv31b")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_hmele")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_hmele")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("9_fsgis")
 metadata/_edit_use_anchors_ = true
 
 [node name="musicSlider" type="HSlider" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 458.0
-offset_top = 849.13
+offset_top = 877.02
 offset_right = 908.9551
-offset_bottom = 876.13
+offset_bottom = 904.02
 theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_vv31b")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_hmele")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_hmele")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("10_vv31b")
 metadata/_edit_use_anchors_ = true
 
 [node name="sfxSlider" type="HSlider" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 458.0
-offset_top = 991.53
+offset_top = 1064.865
 offset_right = 908.9551
-offset_bottom = 1018.53
+offset_bottom = 1091.8651
 theme_override_constants/center_grabber = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_vv31b")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_hmele")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_hmele")
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("11_hmele")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/HUD/backButton" to="CanvasLayer/HUD/backButton" method="_on_pressed"]
+[connection signal="value_changed" from="CanvasLayer/HUD/masterSlider" to="CanvasLayer/HUD/masterSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HUD/musicSlider" to="CanvasLayer/HUD/musicSlider" method="_on_value_changed"]

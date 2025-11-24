@@ -21,6 +21,7 @@ config/icon="uid://dunlk5fiegovs"
 [autoload]
 
 Trans="*res://Scenes/trans.tscn"
+GlobalAudio="*res://Scenes/global_audio.tscn"
 
 [display]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b123ra6wnrgbv"]
+[gd_scene load_steps=13 format=3 uid="uid://b123ra6wnrgbv"]
 
 [ext_resource type="Script" uid="uid://4kgr25pm52f6" path="res://Scripts/parallaxMenu.gd" id="1_85cqf"]
 [ext_resource type="Texture2D" uid="uid://bgkhj7b6gsdhb" path="res://Backgrounds/Clouds 1/1.png" id="1_rcffw"]
@@ -9,10 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://crcsxeojybnua" path="res://Assets/LogoUltraClimb.png" id="6_u2ku0"]
 [ext_resource type="FontFile" uid="uid://d27mnr36vx7cf" path="res://Fonts/RoadPixel.ttf" id="7_3k234"]
 [ext_resource type="Script" uid="uid://bu1w4ta53i5ui" path="res://Scripts/startButtonNew.gd" id="8_3q50s"]
-[ext_resource type="AudioStream" uid="uid://twhf8pvlohbe" path="res://Music/GameStart.mp3" id="9_yedac"]
-[ext_resource type="AudioStream" uid="uid://cn3ovwplms33a" path="res://Music/adventures-loop-music-226836.mp3" id="10_u06bd"]
+[ext_resource type="Script" uid="uid://cxfkhfhn0rmu3" path="res://Scripts/shopButton.gd" id="10_x4xnk"]
 [ext_resource type="Script" uid="uid://t0y1nusjqx17" path="res://Scripts/settingsNew.gd" id="11_tv4y6"]
-[ext_resource type="AudioStream" uid="uid://cavod4344xr0a" path="res://Music/tapClick.mp3" id="12_p5q5c"]
 
 [sub_resource type="Theme" id="Theme_3q50s"]
 default_font = ExtResource("7_3k234")
@@ -126,10 +124,6 @@ flat = true
 script = ExtResource("8_3q50s")
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonClickStart" type="AudioStreamPlayer" parent="CanvasLayer/HUD/Start"]
-stream = ExtResource("9_yedac")
-bus = &"SFX"
-
 [node name="Shop" type="Button" parent="CanvasLayer/HUD"]
 texture_filter = 1
 layout_mode = 1
@@ -150,6 +144,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
 theme_override_constants/outline_size = 25
 text = "SHOP"
 flat = true
+script = ExtResource("10_x4xnk")
 metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Button" parent="CanvasLayer/HUD"]
@@ -175,13 +170,6 @@ flat = true
 script = ExtResource("11_tv4y6")
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonClickSettings" type="AudioStreamPlayer" parent="CanvasLayer/HUD/Settings"]
-stream = ExtResource("12_p5q5c")
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_u06bd")
-volume_db = 10.146
-bus = &"Music"
-
 [connection signal="pressed" from="CanvasLayer/HUD/Start" to="CanvasLayer/HUD/Start" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Shop" to="CanvasLayer/HUD/Shop" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/Settings" to="CanvasLayer/HUD/Settings" method="_on_pressed"]
