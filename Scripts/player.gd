@@ -8,7 +8,10 @@ const WALL_JUMP_OFF = 150.0
 const JUMP_CUT_MAGNITUDE = 0.4
 var jump_count = 0
 var countCoins = 0
+var isdead = false
 const BOOST_EFFECT = preload("res://Scenes/boostFX.tscn")
+const GAME_OVER_SCENE = preload("res://Scenes/game_over.tscn")
+
 @onready var animated_coin = $"../../CanvasLayer/Coin"
 @onready var JUMP_SOUND = $AudioStreamPlayer
 
@@ -23,7 +26,11 @@ func _ready():
 	animated_sprite.flip_h = (direction < 0)
 	
 func _physics_process(delta):
-	
+	if isdead:
+			velocity = Vector2.ZERO
+			return
+			
+			
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
@@ -32,7 +39,6 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump_touch"):
 		
-			
 		if is_on_floor():
 			if is_on_wall():
 				JUMP_SOUND.play()
@@ -83,6 +89,27 @@ func _physics_process(delta):
 	update_animations()
 
 	move_and_slide()
+
+func die():
+	if isdead:
+		return
+	isdead = true
+	
+	velocity = Vector2.ZERO
+	animated_sprite.play("die") 
+	GlobalAudio.play_SFX(preload("res://Music/pixel-explosion-319166.mp3"))
+	await animated_sprite. animation_finished
+	show_gameover()
+	
+
+func show_gameover():
+	var game_overs = GAME_OVER_SCENE.instantiate()
+	var height = int(abs(position.y) / 10)
+	get_tree().root.add_child(game_overs)
+	game_overs.show_stats(countCoins, height)
+	
+	get_tree().paused = true
+	
 
 func update_animations():
 	if(is_on_wall()):

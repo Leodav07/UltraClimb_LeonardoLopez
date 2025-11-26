@@ -1,0 +1,29 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c8ai6dk22gcrn"]
+
+[ext_resource type="FontFile" uid="uid://d27mnr36vx7cf" path="res://Fonts/RoadPixel.ttf" id="1_ro0ew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro0ew"]
+bg_color = Color(0, 0, 1, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0, 0, 0.50980395, 1)
+corner_radius_top_left = 38
+corner_radius_top_right = 38
+corner_radius_bottom_right = 38
+corner_radius_bottom_left = 38
+corner_detail = 10
+
+[resource]
+Button/colors/font_color = Color(0.07058824, 0.96862745, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 1, 1)
+Button/constants/outline_size = 12
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource("1_ro0ew")
+Label/colors/font_color = Color(0, 0.9647059, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 1, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 102
+Label/fonts/font = ExtResource("1_ro0ew")
+Panel/styles/panel = SubResource("StyleBoxFlat_ro0ew")

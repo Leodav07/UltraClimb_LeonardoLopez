@@ -15,6 +15,7 @@
 [sub_resource type="Theme" id="Theme_3q50s"]
 default_font = ExtResource("7_3k234")
 default_font_size = 102
+Label/colors/font_color = Color(0, 0.9647059, 1, 1)
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_x4xnk")
