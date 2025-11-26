@@ -12,12 +12,14 @@ func show_stats(coins, record):
 	record_label.text = str(record)
 
 func _on_tryagain_pressed() -> void:
+	GlobalAudio.play_SFX(preload("res://Music/tapClick.mp3"))
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	self.queue_free()
 	
 
 func _on_home_pressed() -> void:
+	GlobalAudio.play_SFX(preload("res://Music/tapClick.mp3"))
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/MenuV.tscn")
+	Trans.change_scene("res://Scenes/MenuV.tscn")
 	self.queue_free()

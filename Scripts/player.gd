@@ -104,9 +104,8 @@ func die():
 
 func show_gameover():
 	var game_overs = GAME_OVER_SCENE.instantiate()
-	var height = int(abs(position.y) / 10)
 	get_tree().root.add_child(game_overs)
-	game_overs.show_stats(countCoins, height)
+	game_overs.show_stats(countCoins, GlobalData.score)
 	
 	get_tree().paused = true
 	

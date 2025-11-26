@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dwlhfcwxifktp"]
+[gd_scene load_steps=36 format=4 uid="uid://dwlhfcwxifktp"]
 
 [ext_resource type="Texture2D" uid="uid://g6cmys1xhtpu" path="res://Backgrounds/Sprite-0001.png" id="1_m2gv8"]
 [ext_resource type="Script" uid="uid://dtsxbid3cieyg" path="res://Scripts/levelscript.gd" id="1_t31ra"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://dtnw6wjy0d4fm" path="res://Scenes/saw_horizontal.tscn" id="12_61jm7"]
 [ext_resource type="Texture2D" uid="uid://dy2ruat0sp6b0" path="res://Sprites/coin.PNG" id="13_lrmwy"]
 [ext_resource type="Texture2D" uid="uid://bfbjnbpj60rbq" path="res://Sprites/trophy.png" id="14_p3mfg"]
+[ext_resource type="Texture2D" uid="uid://dtd56jfy54qdr" path="res://Assets/pause-button.png" id="15_eaxed"]
 [ext_resource type="FontFile" uid="uid://d27mnr36vx7cf" path="res://Fonts/RoadPixel.ttf" id="15_gh6o0"]
+[ext_resource type="Texture2D" uid="uid://uewpe4arp50f" path="res://Assets/play.png" id="16_k3g0m"]
 [ext_resource type="PackedScene" uid="uid://dmhkoaq7r3uoj" path="res://Scenes/coin.tscn" id="16_t31ra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_320mp"]
@@ -1402,6 +1404,21 @@ text = "0"
 label_settings = SubResource("LabelSettings_k3g0m")
 metadata/_edit_use_anchors_ = true
 
+[node name="pauseButton" type="TextureButton" parent="CanvasLayer/Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = 44.0
+offset_right = -45.000732
+offset_bottom = 150.0
+grow_horizontal = 0
+texture_normal = ExtResource("15_eaxed")
+texture_pressed = ExtResource("16_k3g0m")
+stretch_mode = 0
+
 [node name="Coin2" parent="." groups=["coin"] instance=ExtResource("16_t31ra")]
 position = Vector2(403, 1069)
 scale = Vector2(0.48336187, 0.5749791)
@@ -1415,4 +1432,5 @@ texture_filter = 1
 position = Vector2(408, 1133)
 scale = Vector2(0.55510026, 0.56444216)
 
+[connection signal="pressed" from="CanvasLayer/Control/pauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="Coin2" to="Coin" method="_on_coin_2_body_entered"]

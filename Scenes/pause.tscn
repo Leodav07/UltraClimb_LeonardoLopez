@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm2kktle4vi0q"]
+
+[ext_resource type="Script" uid="uid://cb4or7f5w8xkq" path="res://Scripts/pause.gd" id="1_5a6ek"]
+[ext_resource type="Theme" uid="uid://c8ai6dk22gcrn" path="res://Resources/themenew.tres" id="1_l2mpd"]
+[ext_resource type="Texture2D" uid="uid://dunlk5fiegovs" path="res://Sprites/Owlet_Monster.png" id="2_5a6ek"]
+
+[node name="Pause" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_5a6ek")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.5
+offset_top = -792.0
+offset_right = 430.5
+offset_bottom = 792.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l2mpd")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -206.595
+offset_top = -43.13
+offset_right = 88.69458
+offset_bottom = 59.87
+grow_horizontal = 2
+theme = ExtResource("1_l2mpd")
+text = "pause"
+
+[node name="continue" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4802555
+anchor_top = 0.48034406
+anchor_right = 0.5209059
+anchor_bottom = 0.48034406
+offset_left = -181.0
+offset_top = -219.86499
+offset_right = 181.0
+offset_bottom = -127.86499
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l2mpd")
+text = "continue"
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="restart" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.5
+offset_top = -36.0
+offset_right = 119.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l2mpd")
+text = "restart"
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="home2" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = 163.99994
+offset_right = 199.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l2mpd")
+text = "home"
+icon_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62078977
+anchor_top = -0.046085857
+anchor_right = 0.70905924
+anchor_bottom = 0.0025252525
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+texture = ExtResource("2_5a6ek")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Control/Panel/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/home2" to="." method="_on_home_2_pressed"]
