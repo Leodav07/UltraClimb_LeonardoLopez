@@ -1266,7 +1266,7 @@ font_size = 41
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["player"]]
 position = Vector2(174, -9)
 script = ExtResource("1_t31ra")
 
