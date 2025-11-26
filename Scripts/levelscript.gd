@@ -1,5 +1,5 @@
 extends Node2D
-@onready var player = $TilemapLayers/CharacterBody2D
+@onready var player = $CharacterBody2D
 @onready var scoreLabel = $CanvasLayer/Control/ScoreLabel
 @onready var coinLabel = $CanvasLayer/Control/coinLabel
 @onready var recordLabel = $CanvasLayer/Control/recordLabel
