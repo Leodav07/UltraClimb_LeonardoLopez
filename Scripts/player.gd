@@ -24,6 +24,9 @@ var is_wall_sliding = false
 
 func _ready():
 	animated_sprite.flip_h = (direction < 0)
+	if GlobalData.spawn_position != null:
+		global_position = GlobalData.spawn_position
+		print("Reapareciendo en: ", GlobalData.spawn_position)
 	
 func _physics_process(delta):
 	if isdead:
