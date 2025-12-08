@@ -106,6 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_eoghk")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="record" type="Label" parent="CanvasLayer/Control/Panel/Panel"]
 layout_mode = 1
@@ -149,7 +150,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.026402641
-anchor_top = 0.983614
+anchor_top = 0.9599454
 anchor_right = 0.10231023
 anchor_bottom = 0.9599454
 offset_left = 64.0

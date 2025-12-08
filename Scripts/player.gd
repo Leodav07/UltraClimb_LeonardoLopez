@@ -3,7 +3,7 @@ extends CharacterBody2D
 const GRAVITY = 500.0
 const RUN_SPEED = 105.0
 const JUMP_SPEED = 220.0 
-const WALL_SLIDE_SPEED = 20.0
+const WALL_SLIDE_SPEED = 8.0
 const WALL_JUMP_OFF = 150.0 
 const JUMP_CUT_MAGNITUDE = 0.4
 var jump_count = 0
@@ -24,9 +24,6 @@ var is_wall_sliding = false
 
 func _ready():
 	animated_sprite.flip_h = (direction < 0)
-	if GlobalData.spawn_position != null:
-		global_position = GlobalData.spawn_position
-		print("Reapareciendo en: ", GlobalData.spawn_position)
 	
 func _physics_process(delta):
 	if isdead:
