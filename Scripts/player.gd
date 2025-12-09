@@ -24,6 +24,7 @@ var is_wall_sliding = false
 
 func _ready():
 	animated_sprite.flip_h = (direction < 0)
+	floor_snap_length = 32.0
 	
 func _physics_process(delta):
 	if isdead:
@@ -36,7 +37,26 @@ func _physics_process(delta):
 
 	var on_wall = is_on_wall() and not is_on_floor()
 	is_wall_sliding = on_wall and velocity.y > 0
+	var pegado_a_muro_movil = false
+	
+	if on_wall:
+		for i in get_slide_collision_count():
+			var colision = get_slide_collision(i)
+			var collider = colision.get_collider()
+			
+			if collider is AnimatableBody2D:
+				
+				velocity.y = colision.get_collider_velocity().y
+			
+				pegado_a_muro_movil = true
+				break 
 
+
+	if not pegado_a_muro_movil:
+		is_wall_sliding = on_wall and velocity.y > 0
+	else:
+		is_wall_sliding = false
+		
 	if Input.is_action_just_pressed("jump_touch"):
 		
 		if is_on_floor():

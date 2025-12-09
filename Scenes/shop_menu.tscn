@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://koucf0lybt80"]
+
+[ext_resource type="Script" uid="uid://4kgr25pm52f6" path="res://Scripts/parallaxMenu.gd" id="1_nrmsl"]
+[ext_resource type="Texture2D" uid="uid://bgkhj7b6gsdhb" path="res://Backgrounds/Clouds 1/1.png" id="2_hik0y"]
+[ext_resource type="Texture2D" uid="uid://d2o4pwcttp4vq" path="res://Backgrounds/Clouds 1/2.png" id="3_m1l3a"]
+[ext_resource type="Texture2D" uid="uid://dga0g2aebghcm" path="res://Backgrounds/Clouds 1/3.png" id="4_4pkg8"]
+[ext_resource type="Texture2D" uid="uid://bxn0w3aw8vmpb" path="res://Backgrounds/Clouds 1/4.png" id="5_gtyft"]
+[ext_resource type="Texture2D" uid="uid://dm1mu4yf2p5xd" path="res://Sprites/gear.png" id="6_psjpk"]
+[ext_resource type="FontFile" uid="uid://d27mnr36vx7cf" path="res://Fonts/RoadPixel.ttf" id="7_hdaqb"]
+[ext_resource type="Script" uid="uid://e1qp3wyr4ot3" path="res://Scripts/back_button.gd" id="8_e83mo"]
+
+[sub_resource type="Theme" id="Theme_xcxc4"]
+default_font = ExtResource("7_hdaqb")
+default_font_size = 102
+
+[sub_resource type="Theme" id="Theme_vv31b"]
+default_font = ExtResource("7_hdaqb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hmele"]
+font_size = 81
+font_color = Color(0, 0.9647059, 1, 1)
+outline_size = 25
+outline_color = Color(0, 0, 1, 1)
+
+[node name="SettingsMenu" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_nrmsl")
+
+[node name="Sky" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/Sky"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1428.0
+offset_top = -567.0
+offset_right = 2572.0
+offset_bottom = 2422.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hik0y")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarClouds" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(4834, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/FarClouds"]
+offset_left = -1428.0
+offset_top = -567.0
+offset_right = 3406.0
+offset_bottom = 2422.0
+texture = ExtResource("3_m1l3a")
+metadata/_edit_use_anchors_ = true
+
+[node name="Plane" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(4834, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/Plane"]
+offset_left = -1428.0
+offset_top = -567.0
+offset_right = 3406.0
+offset_bottom = 2422.0
+texture = ExtResource("4_4pkg8")
+metadata/_edit_use_anchors_ = true
+
+[node name="NearClouds" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(4834, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ParallaxBackground/NearClouds"]
+offset_left = -1428.0
+offset_top = -567.0
+offset_right = 3406.0
+offset_bottom = 2422.0
+texture = ExtResource("5_gtyft")
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -333.0
+offset_top = 198.0
+offset_right = -248.0
+offset_bottom = 287.0
+grow_horizontal = 0
+rotation = -6.2831855
+texture = ExtResource("6_psjpk")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="backButton" type="Button" parent="CanvasLayer/HUD"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -123.56
+offset_top = -349.14
+offset_right = 126.440796
+offset_bottom = -238.14001
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_xcxc4")
+theme_override_colors/font_color = Color(0, 0.9647059, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 25
+text = "back"
+flat = true
+script = ExtResource("8_e83mo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Settings" type="Button" parent="CanvasLayer/HUD"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.3675414
+anchor_bottom = 0.5
+offset_left = -136.375
+offset_top = -763.27
+offset_right = 285.6255
+offset_bottom = -652.27
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xcxc4")
+theme_override_colors/font_color = Color(0, 0.9647059, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 1, 1)
+theme_override_constants/outline_size = 25
+text = "Shop"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="volumen" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.52529687
+anchor_right = 0.5
+anchor_bottom = 0.52529687
+offset_left = -350.0
+offset_top = -533.57
+offset_right = 350.0
+offset_bottom = -433.5699
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vv31b")
+text = "skins"
+label_settings = SubResource("LabelSettings_hmele")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="master" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.48796296
+anchor_top = 0.2974271
+anchor_right = 0.67777777
+anchor_bottom = 0.29742706
+offset_left = -134.0
+offset_top = 406.94
+offset_right = -30.0
+offset_bottom = 490.9425
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vv31b")
+text = "boosts"
+label_settings = SubResource("LabelSettings_hmele")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/HUD/backButton" to="CanvasLayer/HUD/backButton" method="_on_pressed"]

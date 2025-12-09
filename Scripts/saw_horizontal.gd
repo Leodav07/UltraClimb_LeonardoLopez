@@ -6,19 +6,28 @@ extends Area2D
 @export_group("Configuración de Movimiento")
 @export var move_speed: float = 75.0
 @export var move_distance: float = 150.0
+@export var horizontal = true
 @onready var animated_sprite = $AnimatedSprite2D
 
 var start_x: float = 0.0
+var start_y: float = 0.0
 var time_elapsed: float = 0.0
 
 func _ready() -> void:
-	start_x = position.x
+	if horizontal: 
+		start_x = position.x
+	else:
+		start_y = position.y
 	
 func _process(delta):
 	animated_sprite.play("Rotate")
 	time_elapsed += delta
-	var offset_x = sin(time_elapsed * move_speed / move_distance) * move_distance
-	position.x = start_x + offset_x
+	if horizontal:
+		var offset_x = sin(time_elapsed * move_speed / move_distance) * move_distance
+		position.x = start_x + offset_x
+	else:
+		var offset_y = sin(time_elapsed * move_speed / move_distance) * move_distance
+		position.y = start_y + offset_y
 	
 
 func _on_body_entered(body: Node2D) -> void:

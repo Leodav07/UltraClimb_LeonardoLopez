@@ -16,8 +16,6 @@ func _process(delta):
 	position.y = start_y + offset_y
 	
 
-
-
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" or body.is_in_group("player") or body.has_method("die"):
 		if body.has_method("die"):

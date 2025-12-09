@@ -4,7 +4,9 @@ extends AnimatableBody2D
 @export var duracion : float = 2.0
 
 func _ready():
+	sync_to_physics = true
 	mover_plataforma()
+	
 
 func mover_plataforma():
 	var tween = create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
