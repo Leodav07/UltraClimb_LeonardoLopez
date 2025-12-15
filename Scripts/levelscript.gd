@@ -3,7 +3,6 @@ extends Node2D
 @onready var scoreLabel = $CanvasLayer/Control/ScoreLabel
 @onready var coinLabel = $CanvasLayer/Control/coinLabel
 @onready var recordLabel = $CanvasLayer/Control/recordLabel
-
 const MUSIC_BACKGROUND_PLAY = preload("res://Music/backgroundmusicforgame.mp3")
 const PIXEL_PER_POINT = 50
 const PAUSE_SCENE = preload("res://Scenes/pause.tscn")
@@ -28,9 +27,9 @@ func _process(delta):
 		
 	if(record<score):
 		record = score
-	recordLabel.text = str(record)
+	recordLabel.text = str(GlobalData.highscore)
 	GlobalData.score = record
-
+	
 
 func _on_pause_button_pressed() -> void:
 	var paused_scene = PAUSE_SCENE.instantiate()

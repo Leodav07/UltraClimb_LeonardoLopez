@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dtxk46e8rxshy"]
+[gd_scene load_steps=51 format=3 uid="uid://dtxk46e8rxshy"]
 
 [ext_resource type="Script" uid="uid://c11en3ir613ny" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ci0mw786flx1i" path="res://Sprites/Double_Jump_Dust_5.png" id="2_1jxqw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cia3hci8lxcjh" path="res://Sprites/Owlet_Monster_Run_6.png" id="4_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://yiwvagt1ku3i" path="res://Assets/spriteSheetSlide.png" id="5_2hs0m"]
 [ext_resource type="AudioStream" uid="uid://cp5socn4eolnu" path="res://Music/cartoon-jump-6462.mp3" id="5_sweqy"]
+[ext_resource type="Texture2D" uid="uid://s0x2fc8qgxce" path="res://Sprites/Owlet_Monster_Throw_4.png" id="8_f1ek2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iruf7"]
 atlas = ExtResource("2_1jxqw")
@@ -147,6 +148,22 @@ region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wuci"]
 atlas = ExtResource("5_2hs0m")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("8_f1ek2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("8_f1ek2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("8_f1ek2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("8_f1ek2")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4flbx"]
@@ -293,6 +310,23 @@ animations = [{
 "loop": true,
 "name": &"slide",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.01,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}],
+"loop": false,
+"name": &"throw",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
@@ -307,8 +341,8 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4flbx")
-animation = &"die"
-frame = 8
+animation = &"throw"
+frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -317,7 +351,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1.374, 234.946)
-scale = Vector2(0.72518146, -2.722219)
+scale = Vector2(-2.625, -2.625)
 offset = Vector2(0, -170.935)
 zoom = Vector2(5.34, 5.366)
 limit_enabled = false
