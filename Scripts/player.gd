@@ -15,10 +15,15 @@ const BOOST_EFFECT = preload("res://Scenes/boostFX.tscn")
 const GAME_OVER_SCENE = preload("res://Scenes/game_over.tscn")
 const GAME_WIN_SCENE = preload("res://Scenes/winUI.tscn")
 @export var throw_cooldown = 1
+var current_scale_base = Vector2(1, 1)
 var can_throw = true
 var is_boss_mode = false
 var win = false
-
+const SKIN_RESOURCES = {
+	"default": preload("res://Resources/SkinDefault.tres"),
+	"pink": preload("res://Resources/SkinPinkMonster.tres"),
+	"dude": preload("res://Resources/SkinDudeMonster.tres")
+}
 const PROJECTILE = preload("res://Scenes/projectilerock.tscn")
 @onready var animated_coin = $"../../CanvasLayer/Coin"
 @onready var JUMP_SOUND = $AudioStreamPlayer
@@ -33,6 +38,7 @@ var is_wall_sliding = false
 func _ready():
 	animated_sprite.flip_h = (direction < 0)
 	floor_snap_length = 32.0
+	load_current_skin()
 	if GlobalData.boost_triple_jump:
 		max_jump_count = 2 
 	
@@ -249,7 +255,14 @@ func show_win():
 func update_animations():
 	if(is_on_wall()):
 		animated_sprite.play("slide") 
+		if GlobalData.current_skin == "dude" or GlobalData.current_skin == "pink":
+			animated_sprite.scale = current_scale_base * 0.15
+		else:
+			animated_sprite.scale = current_scale_base
+			
 		return
+		
+	animated_sprite.scale = current_scale_base
 	
 	if not is_on_floor():
 		if velocity.y < 0:
@@ -268,6 +281,26 @@ func update_animations():
 			animated_sprite.play("throw")
 		else:
 			animated_sprite.play("idle")
+
+func load_current_skin():
+	var skin_name = GlobalData.current_skin
+	
+	if SKIN_RESOURCES.has(skin_name):
+		animated_sprite.sprite_frames = SKIN_RESOURCES[skin_name]
+		animated_sprite.play("idle")
+		if skin_name == "pink":
+			current_scale_base = Vector2(1, 1)
+			animated_sprite.position.y = 0
+		elif skin_name == "dude":
+			current_scale_base = Vector2(1, 1)
+			animated_sprite.position.y = 0
+		else:
+			current_scale_base = Vector2(1, 1)
+			animated_sprite.position.y = 0
+			
+		animated_sprite.scale = current_scale_base 
+	else:
+		print("No se encontro skin")
 		
 func _input(event):
 	if event is InputEventMouseButton:

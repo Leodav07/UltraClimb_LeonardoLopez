@@ -4,7 +4,8 @@ var score = 0
 var jumps = 0
 var total_coins : int
 var highscore = 0
-
+var owned_skins = ["default"]
+var current_skin = "default"
 var boost_triple_jump = false
 var boost_shield = false
 var boost_magnet = false
@@ -28,7 +29,7 @@ func save_game():
 	var music_volumen = AudioServer.get_bus_volume_db(music_idx)
 	var sfx_volumen = AudioServer.get_bus_volume_db(sfx_idx)
 	
-	var data = {"total_coins": total_coins, "highscore": highscore, "master_volumen": master_volumen, "music_volumen": music_volumen, "sfx_volumen": sfx_volumen}
+	var data = {"total_coins": total_coins, "highscore": highscore, "master_volumen": master_volumen, "music_volumen": music_volumen, "sfx_volumen": sfx_volumen, "owned_skins": owned_skins, "current_skin": current_skin}
 	var json_string = JSON.stringify(data)
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(json_string)
@@ -62,4 +63,7 @@ func load_game():
 	
 	if data.has("sfx_volumen"):
 		AudioServer.set_bus_volume_db(sfx_idx, data["sfx_volumen"])
+	
+	if "owned_skins" in data: owned_skins = data["owned_skins"]
+	if "current_skin" in data: current_skin = data["current_skin"]
 	

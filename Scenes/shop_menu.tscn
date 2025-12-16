@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://koucf0lybt80"]
+[gd_scene load_steps=23 format=3 uid="uid://koucf0lybt80"]
 
 [ext_resource type="Script" uid="uid://dwnol66d4pfpk" path="res://Scripts/shop_menu.gd" id="1_m1l3a"]
 [ext_resource type="Script" uid="uid://4kgr25pm52f6" path="res://Scripts/parallaxMenu.gd" id="1_nrmsl"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://cgi510yvho0jy" path="res://Assets/triplesalto.png" id="11_gtyft"]
 [ext_resource type="Texture2D" uid="uid://d3tpnw7ytnnql" path="res://Assets/shield.png" id="12_psjpk"]
 [ext_resource type="Texture2D" uid="uid://coc7ymq1vi4pf" path="res://Assets/iman.png" id="13_psjpk"]
+[ext_resource type="Texture2D" uid="uid://dunlk5fiegovs" path="res://Sprites/Owlet_Monster.png" id="14_8auaq"]
+[ext_resource type="Texture2D" uid="uid://b7b5sd57ugu77" path="res://Sprites/1 Pink_Monster/Pink_Monster.png" id="15_hsifw"]
+[ext_resource type="Texture2D" uid="uid://bwrhxpx4mfgn0" path="res://Sprites/3 Dude_Monster/Dude_Monster.png" id="16_ajvap"]
 
 [sub_resource type="Theme" id="Theme_xcxc4"]
 default_font = ExtResource("7_hdaqb")
@@ -119,14 +122,14 @@ metadata/_edit_lock_ = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.91851854
-anchor_top = -0.019791666
-anchor_right = 0.9793204
-anchor_bottom = 0.017791351
-offset_left = -333.0
-offset_top = 198.0
-offset_right = -248.0
-offset_bottom = 287.0
+anchor_left = 0.61
+anchor_top = 0.083000004
+anchor_right = 0.75000006
+anchor_bottom = 0.16700001
+offset_left = 0.2000122
+offset_top = 0.63998413
+offset_right = -0.3340454
+offset_bottom = 0.51937866
 grow_horizontal = 0
 rotation = -6.2831855
 texture = ExtResource("6_nrmsl")
@@ -136,15 +139,15 @@ metadata/_edit_use_anchors_ = true
 [node name="backButton" type="Button" parent="CanvasLayer/HUD"]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -123.56
-offset_top = -349.14
-offset_right = 126.440796
-offset_bottom = -238.14001
+anchors_preset = -1
+anchor_left = 0.386
+anchor_top = 0.818
+anchor_right = 0.61700004
+anchor_bottom = 0.87600005
+offset_left = -0.44000244
+offset_top = 0.29992676
+offset_right = 0.08074951
+offset_bottom = -0.060058594
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_xcxc4")
@@ -160,14 +163,14 @@ metadata/_edit_use_anchors_ = true
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3675414
-anchor_top = 0.5
-anchor_right = 0.3675414
-anchor_bottom = 0.5
-offset_left = -136.375
-offset_top = -763.27
-offset_right = 285.6255
-offset_bottom = -652.27
+anchor_left = 0.24100001
+anchor_top = 0.102000006
+anchor_right = 0.632
+anchor_bottom = 0.16000001
+offset_left = 0.28970337
+offset_top = 0.8899689
+offset_right = 0.010131836
+offset_bottom = 0.52996826
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_xcxc4")
@@ -181,14 +184,14 @@ metadata/_edit_use_anchors_ = true
 [node name="volumen" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.52529687
-anchor_right = 0.5
-anchor_bottom = 0.52529687
-offset_left = -350.0
-offset_top = -533.57
-offset_right = 350.0
-offset_bottom = -433.5699
+anchor_left = 0.17600001
+anchor_top = 0.24700001
+anchor_right = 0.82400006
+anchor_bottom = 0.29900002
+offset_left = -0.08001709
+offset_top = 0.75997925
+offset_right = 0.079956055
+offset_bottom = 0.92004395
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vv31b")
@@ -201,14 +204,14 @@ metadata/_edit_use_anchors_ = true
 [node name="master" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.47314814
-anchor_top = 0.2995104
-anchor_right = 0.662963
-anchor_bottom = 0.2995104
-offset_left = -134.0
-offset_top = 406.94
-offset_right = -30.0
-offset_bottom = 490.9425
+anchor_left = 0.349
+anchor_top = 0.51100004
+anchor_right = 0.63500005
+anchor_bottom = 0.555
+offset_left = 0.07998657
+offset_top = 0.8798828
+offset_right = 0.19995117
+offset_bottom = 0.40246582
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vv31b")
@@ -388,7 +391,147 @@ flat = true
 icon_alignment = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Panel2" type="Panel" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10822223
+anchor_top = 0.31479168
+anchor_right = 0.8792223
+anchor_bottom = 0.46679172
+offset_left = 0.11998749
+offset_top = -0.4000244
+offset_right = 0.4399414
+offset_bottom = 0.7598877
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdaqb")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13000001
+anchor_top = 0.19500001
+anchor_right = 0.287
+anchor_bottom = 0.614
+offset_left = -0.29000854
+offset_top = -0.13500214
+offset_right = -0.070999146
+offset_bottom = 0.09799194
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_8auaq")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HUD/Panel2/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.8550383
+anchor_top = 0.03456911
+anchor_right = 2.9425886
+anchor_bottom = 1.0247806
+offset_left = -0.010009766
+offset_top = -10.252016
+offset_right = -0.058013916
+offset_bottom = -0.04802704
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_hsifw")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HUD/Panel2/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.7254047
+anchor_top = -0.13817887
+anchor_right = 4.8023705
+anchor_bottom = 0.98418397
+offset_left = -0.028015137
+offset_top = -0.0039844513
+offset_right = 0.0018310547
+offset_bottom = -0.054611206
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_ajvap")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HUD/Panel2/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07820529
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.854996
+offset_top = 37.350204
+offset_right = -56.978416
+offset_bottom = -32.061485
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="default" type="Button" parent="CanvasLayer/HUD/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12159425
+anchor_top = 0.6383481
+anchor_right = 0.28440097
+anchor_bottom = 0.7713481
+offset_left = -0.28800964
+offset_top = -0.035995483
+offset_right = 0.09399414
+offset_bottom = -0.005004883
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_hdaqb")
+theme_override_font_sizes/font_size = 30
+text = "EQUIPPED"
+icon = ExtResource("9_hik0y")
+flat = true
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="pink" type="Button" parent="CanvasLayer/HUD/Panel2/default"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.5707693
+anchor_right = 2.5953593
+anchor_bottom = 0.8720001
+offset_left = 2.9599915
+offset_right = 2.9599915
+offset_bottom = 4.991997
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_hdaqb")
+theme_override_font_sizes/font_size = 30
+text = "BUY 35"
+icon = ExtResource("9_hik0y")
+flat = true
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="dude" type="Button" parent="CanvasLayer/HUD/Panel2/default/pink"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.4642506
+anchor_top = -0.051282074
+anchor_right = 2.4888406
+anchor_bottom = 0.82071805
+offset_left = 2.9599915
+offset_right = 2.9599915
+offset_bottom = 4.991997
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("7_hdaqb")
+theme_override_font_sizes/font_size = 30
+text = "BUY 50"
+icon = ExtResource("9_hik0y")
+flat = true
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="CanvasLayer/HUD/backButton" to="CanvasLayer/HUD/backButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/Panel/triple" to="." method="_on_triple_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/Panel/triple/shield" to="." method="_on_shield_pressed"]
 [connection signal="pressed" from="CanvasLayer/HUD/Panel/triple/shield/iman" to="." method="_on_iman_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Panel2/default" to="." method="_on_default_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Panel2/default/pink" to="." method="_on_pink_pressed"]
+[connection signal="pressed" from="CanvasLayer/HUD/Panel2/default/pink/dude" to="." method="_on_dude_pressed"]
