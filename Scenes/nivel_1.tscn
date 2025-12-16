@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://dwlhfcwxifktp"]
+[gd_scene load_steps=45 format=4 uid="uid://dwlhfcwxifktp"]
 
 [ext_resource type="Texture2D" uid="uid://g6cmys1xhtpu" path="res://Backgrounds/Sprite-0001.png" id="1_m2gv8"]
 [ext_resource type="Script" uid="uid://dtsxbid3cieyg" path="res://Scripts/levelscript.gd" id="1_t31ra"]
@@ -1054,6 +1054,12 @@ font_size = 41
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xy45"]
+bg_color = Color(0.34490898, 0.36807927, 0.2908104, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kabt5"]
+bg_color = Color(0.8666667, 0.023529412, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5wsa"]
 size = Vector2(679, 268.2649)
 
@@ -1247,24 +1253,48 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="moveleft" type="TouchScreenButton" parent="CanvasLayer/BossControls"]
-position = Vector2(54, 1727)
+position = Vector2(54, 1668)
+scale = Vector2(1.6969697, 1.5784314)
 texture_normal = ExtResource("16_5iadn")
 action = "move_left"
 
 [node name="moveright" type="TouchScreenButton" parent="CanvasLayer/BossControls"]
-position = Vector2(259.525, 1728)
+position = Vector2(251.2, 1669)
+scale = Vector2(1.7207919, 1.5757577)
 texture_normal = ExtResource("17_vpq0c")
 action = "move_right"
 
 [node name="jump" type="TouchScreenButton" parent="CanvasLayer/BossControls"]
-position = Vector2(738.315, 1729)
+position = Vector2(664.54, 1669)
+scale = Vector2(1.6534654, 1.5353535)
 texture_normal = ExtResource("18_3xy45")
 action = "jump_classic"
 
 [node name="throw" type="TouchScreenButton" parent="CanvasLayer/BossControls"]
-position = Vector2(879.9, 1729)
+position = Vector2(845.54, 1669)
+scale = Vector2(1.663366, 1.545454)
 texture_normal = ExtResource("19_kabt5")
 action = "throw_rock"
+
+[node name="Bosshealthbar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.24907407
+anchor_top = -0.009895833
+anchor_right = 0.7185185
+anchor_bottom = -0.009895833
+offset_left = 2.0
+offset_top = 213.0
+offset_right = 6.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_3xy45")
+theme_override_styles/fill = SubResource("StyleBoxFlat_kabt5")
+max_value = 8.0
+step = 1.0
+value = 8.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Coin2" parent="." groups=["coin"] instance=ExtResource("16_t31ra")]
 position = Vector2(441, 1042)
@@ -1344,7 +1374,7 @@ scale = Vector2(0.49287754, 0.56462586)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_eciuy")]
 texture_filter = 1
-position = Vector2(243.99997, -2966.0002)
+position = Vector2(412, 1138.0001)
 scale = Vector2(0.55510026, 0.56444216)
 
 [node name="killingFloor" parent="." instance=ExtResource("10_7ce3s")]
@@ -1608,10 +1638,14 @@ position = Vector2(194, -2483.0002)
 scale = Vector2(0.592063, 0.5555082)
 bounce_force = 440.335
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("boss_camera", "boss_node", "health_bar", "playerNode")]
 visible = false
 position = Vector2(331, -2969)
 script = ExtResource("21_guoqe")
+boss_camera = NodePath("../BossCamera")
+boss_node = NodePath("../FinalBoss")
+health_bar = NodePath("../CanvasLayer/Bosshealthbar")
+playerNode = NodePath("../CharacterBody2D")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -1619,8 +1653,14 @@ position = Vector2(272.57, -115.868)
 shape = SubResource("RectangleShape2D_m5wsa")
 
 [node name="FinalBoss" parent="." instance=ExtResource("26_3xy45")]
+texture_filter = 1
 position = Vector2(463, -2975)
 scale = Vector2(0.5897425, 0.55837595)
+
+[node name="BossCamera" type="Camera2D" parent="."]
+position = Vector2(352.99997, -3005)
+enabled = false
+zoom = Vector2(3.745, 3.745)
 
 [connection signal="pressed" from="CanvasLayer/Control/pauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="body_entered" from="Coin2" to="Coin" method="_on_coin_2_body_entered"]

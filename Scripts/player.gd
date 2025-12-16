@@ -9,11 +9,15 @@ const JUMP_CUT_MAGNITUDE = 0.4
 var jump_count = 0
 var countCoins = 0
 var isdead = false
+var has_shield = false
+var max_jump_count = 1
 const BOOST_EFFECT = preload("res://Scenes/boostFX.tscn")
 const GAME_OVER_SCENE = preload("res://Scenes/game_over.tscn")
+const GAME_WIN_SCENE = preload("res://Scenes/winUI.tscn")
 @export var throw_cooldown = 1
 var can_throw = true
 var is_boss_mode = false
+var win = false
 
 const PROJECTILE = preload("res://Scenes/projectilerock.tscn")
 @onready var animated_coin = $"../../CanvasLayer/Coin"
@@ -29,10 +33,29 @@ var is_wall_sliding = false
 func _ready():
 	animated_sprite.flip_h = (direction < 0)
 	floor_snap_length = 32.0
+	if GlobalData.boost_triple_jump:
+		max_jump_count = 2 
+	
+
+	if GlobalData.boost_shield:
+		has_shield = true
+		modulate = Color(0.5, 0.5, 1, 1) 
+		
+
+	if GlobalData.boost_magnet:
+		var area = Area2D.new()
+		var shape = CollisionShape2D.new()
+		var circle = CircleShape2D.new()
+		circle.radius = 150 
+		shape.shape = circle
+		area.add_child(shape)
+		area.name = "MagnetArea" 
+		add_child(area)
+		
 	
 func _physics_process(delta):
 	if not is_boss_mode:
-		if isdead:
+		if isdead or win:
 			velocity = Vector2.ZERO
 			return
 			
@@ -61,10 +84,14 @@ func _physics_process(delta):
 			is_wall_sliding = on_wall and velocity.y > 0
 		else:
 			is_wall_sliding = false
-			
+	
+		if is_on_floor() or is_on_wall():
+			jump_count = 0 
+				
 		if Input.is_action_just_pressed("jump_touch"):
-			
+			GlobalData.jumps += 1
 			if is_on_floor():
+				
 				if is_on_wall():
 					JUMP_SOUND.play()
 					velocity.y = -JUMP_SPEED * 1.1 
@@ -84,7 +111,7 @@ func _physics_process(delta):
 				is_wall_sliding = false 
 				jump_count+=1
 			
-			elif jump_count >= 1:
+			elif jump_count <= max_jump_count:
 				var dust_instance = BOOST_EFFECT.instantiate()
 				get_parent().add_child(dust_instance)
 				dust_instance.global_position = global_position;
@@ -93,10 +120,11 @@ func _physics_process(delta):
 				velocity.y = -JUMP_SPEED * 1.1 
 				direction *= -1 
 				velocity.x = direction * WALL_JUMP_OFF 
-				jump_count = 0
+				jump_count += 1
 				
 		if Input.is_action_just_released("jump_touch") and velocity.y < 0:
 			velocity.y *= JUMP_CUT_MAGNITUDE
+			GlobalData.jumps += 1
 		
 			
 				
@@ -111,7 +139,7 @@ func _physics_process(delta):
 		
 		animated_sprite.flip_h = (direction < 0)
 	else:
-		if isdead:
+		if isdead or win:
 			velocity = Vector2.ZERO
 			return
 		move_classic(delta)
@@ -132,6 +160,7 @@ func move_classic(delta):
 		velocity.x = move_toward(velocity.x, 0, RUN_SPEED)
 	
 	if Input.is_action_just_pressed("jump_classic") and is_on_floor():
+		GlobalData.jumps += 1
 		velocity.y = -JUMP_SPEED
 		GlobalAudio.play_SFX(preload("res://Music/cartoon-jump-6462.mp3"))
 	
@@ -153,21 +182,44 @@ func throw_object():
 func activate_boss_mode():
 	is_boss_mode = true
 	velocity = Vector2.ZERO
+	var player_camera = get_node_or_null("Camera2D")
+	if player_camera:
+		player_camera.enabled = false
 
 
 	
 func die():
+	if has_shield:
+		has_shield = false 
+		GlobalData.boost_shield = false 
+		modulate = Color(1, 1, 1, 1)
+		GlobalAudio.play_SFX(preload("res://Music/boing.mp3")) 
+		
+		velocity.y = -300
+		velocity.x = -200 * direction
+		return
+		
 	if isdead:
 		return
 	isdead = true
 	
+	GlobalData.reset_boosts()
 	velocity = Vector2.ZERO
 	animated_sprite.play("die") 
 	GlobalAudio.play_SFX(preload("res://Music/pixel-explosion-319166.mp3"))
 	await animated_sprite. animation_finished
 	show_gameover()
 	
-
+func winner():
+	if win:
+		return
+	win = true
+	
+	velocity = Vector2.ZERO
+	GlobalAudio.play_music(preload("res://Music/win.mp3"))
+	show_win()
+	
+	
 func show_gameover():
 	GlobalData.total_coins += countCoins
 	
@@ -180,7 +232,19 @@ func show_gameover():
 	game_overs.show_stats(countCoins, GlobalData.score)
 	
 	get_tree().paused = true
+
+func show_win():
+	GlobalData.total_coins += countCoins
 	
+	if GlobalData.score > GlobalData.highscore:
+		GlobalData.highscore = GlobalData.score
+	
+	GlobalData.save_game()
+	var game_win = GAME_WIN_SCENE.instantiate()
+	get_tree().root.add_child(game_win)
+	game_win.show_stats(countCoins, GlobalData.score, GlobalData.jumps)
+	
+	#get_tree().paused = true
 
 func update_animations():
 	if(is_on_wall()):

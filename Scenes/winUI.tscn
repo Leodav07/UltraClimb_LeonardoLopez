@@ -1,0 +1,295 @@
+[gd_scene load_steps=9 format=3 uid="uid://7a3t5f4m2w0r"]
+
+[ext_resource type="Script" uid="uid://cuwjgc7oyjbks" path="res://Scripts/win_ui.gd" id="1_cn7ge"]
+[ext_resource type="Theme" uid="uid://c8ai6dk22gcrn" path="res://Resources/themenew.tres" id="2_cn7ge"]
+[ext_resource type="Texture2D" uid="uid://dy2ruat0sp6b0" path="res://Sprites/coin.PNG" id="3_6w7cd"]
+[ext_resource type="Texture2D" uid="uid://bfbjnbpj60rbq" path="res://Sprites/trophy.png" id="4_gm1e3"]
+[ext_resource type="Texture2D" uid="uid://bgb43rxly4yl3" path="res://Sprites/boy.png" id="5_cn7ge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek8ke"]
+bg_color = Color(0, 0, 0.50980395, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w7cd"]
+font_size = 32
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gm1e3"]
+font_size = 32
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[node name="win" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_cn7ge")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -303.0
+offset_top = -274.625
+offset_right = 303.0
+offset_bottom = 274.625
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_cn7ge")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53547853
+anchor_top = 0.0030860398
+anchor_right = 0.53547853
+anchor_bottom = 0.0030860398
+offset_left = -251.5
+offset_top = -41.07
+offset_right = 251.5
+offset_bottom = 61.93
+grow_horizontal = 2
+theme = ExtResource("2_cn7ge")
+text = "YOU WON!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -189.0
+offset_right = 224.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ek8ke")
+metadata/_edit_use_anchors_ = true
+
+[node name="jumps" type="Label" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.591
+anchor_right = 0.388
+anchor_bottom = 0.69900006
+offset_left = 0.11199951
+offset_top = 0.06399536
+offset_right = 0.17599487
+offset_bottom = 0.09597778
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "rrr"
+label_settings = SubResource("LabelSettings_6w7cd")
+metadata/_edit_use_anchors_ = true
+
+[node name="record" type="Label" parent="CanvasLayer/Control/Panel/Panel/jumps"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.202
+anchor_right = 2.3100002
+anchor_bottom = 0.906
+offset_left = -0.008003235
+offset_top = -3.0000267
+offset_right = 0.0032653809
+offset_bottom = 0.007972717
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "JUMPS"
+label_settings = SubResource("LabelSettings_6w7cd")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.20600002
+anchor_right = 0.134
+anchor_bottom = 0.31800002
+offset_left = -0.016016006
+offset_top = 0.024002075
+offset_right = -0.032016754
+offset_bottom = -0.12800598
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6w7cd")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.38200003
+anchor_right = 0.156
+anchor_bottom = 0.53400004
+offset_left = -0.15999985
+offset_top = -0.072029114
+offset_right = 0.11199951
+offset_bottom = -0.06404114
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gm1e3")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/Panel/Panel/TextureRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.2
+anchor_right = 0.78000003
+anchor_bottom = 2.111
+offset_top = 2.2888184e-05
+offset_bottom = 0.005027771
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_cn7ge")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="record" type="Label" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.156
+anchor_top = 0.409
+anchor_right = 0.321
+anchor_bottom = 0.517
+offset_left = 0.11201477
+offset_top = -0.06403351
+offset_right = 0.19200134
+offset_bottom = -0.032043457
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "rrr"
+label_settings = SubResource("LabelSettings_6w7cd")
+metadata/_edit_use_anchors_ = true
+
+[node name="record" type="Label" parent="CanvasLayer/Control/Panel/Panel/record"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.6810001
+anchor_right = 3.1950002
+anchor_bottom = 0.96900004
+offset_left = 0.016021729
+offset_top = -1.0
+offset_right = -0.019927979
+offset_bottom = -0.0080013275
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "record"
+label_settings = SubResource("LabelSettings_6w7cd")
+metadata/_edit_use_anchors_ = true
+
+[node name="collected" type="Label" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42900002
+anchor_top = 0.216
+anchor_right = 0.98700005
+anchor_bottom = 0.324
+offset_left = -0.1920166
+offset_top = 0.063999176
+offset_right = -0.17602539
+offset_bottom = 0.09600067
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "Coins collected"
+label_settings = SubResource("LabelSettings_gm1e3")
+metadata/_edit_use_anchors_ = true
+
+[node name="coin" type="Label" parent="CanvasLayer/Control/Panel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15400001
+anchor_top = 0.22000001
+anchor_right = 0.30600002
+anchor_bottom = 0.328
+offset_left = 0.0079956055
+offset_top = -0.12000275
+offset_right = -0.088012695
+offset_bottom = -0.088005066
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 49
+text = "Coin"
+label_settings = SubResource("LabelSettings_gm1e3")
+metadata/_edit_use_anchors_ = true
+
+[node name="tryagain" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.026402641
+anchor_top = 0.9599454
+anchor_right = 0.10231023
+anchor_bottom = 0.9599454
+offset_left = 64.0
+offset_top = -132.625
+offset_right = 257.0
+offset_bottom = -60.625
+grow_vertical = 0
+theme = ExtResource("2_cn7ge")
+theme_override_font_sizes/font_size = 50
+text = "PLAY AGAIN"
+flat = true
+icon_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="home" type="Button" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.983614
+anchor_right = 1.0
+anchor_bottom = 0.983614
+offset_left = -209.0
+offset_top = -141.625
+offset_right = -82.0
+offset_bottom = -82.625
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "home"
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/tryagain" to="." method="_on_tryagain_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/Panel/home" to="." method="_on_home_pressed"]

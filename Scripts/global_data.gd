@@ -1,12 +1,23 @@
 extends Node
 
 var score = 0
+var jumps = 0
 var total_coins : int
 var highscore = 0
+
+var boost_triple_jump = false
+var boost_shield = false
+var boost_magnet = false
+
 const SAVE_PATH = "user://gameprogress.json"
 
 func _ready() -> void:
 	load_game()
+
+func reset_boosts():
+	boost_triple_jump = false
+	boost_shield = false
+	boost_magnet = false
 
 func save_game():
 	var master_idx = AudioServer.get_bus_index("Master")
